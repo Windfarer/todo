@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<link href="/static/css/dashboard.css" rel="stylesheet">
+{% include "header.html" %}
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar" >
+			<div id="createbtn">
+  		  <a href="/task/add"><button type="button" class="btn btn-default btn">
+  		   <span class="glyphicon glyphicon-plus"></span>Create Task</button></a>
+	   </div>
+  		  {% block sidebar %}
+  		  {% endblock %}
+		  
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">{{title}}</h1> 
+		 
+  		  {% block page %}
+  		  {% endblock %}
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

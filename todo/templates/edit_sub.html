@@ -1,0 +1,20 @@
+{% extends "layouts.html" %}
+
+{% block page %}
+
+<form method=post action="/task/edit/{{ task_id }}/{{subtask_id}}" >
+	
+ <div class="form-group">
+    <label>Task Content</label>
+	<textarea class="form-control" rows="3" name="content"  value=required autofocus>{{subtask.content}} </textarea>
+    <label>DeadLine</label>
+    <input type="date" class="form-control" name="deadline"  value={{subtask.deadline}}  required>
+	
+  </div>
+
+<p>
+  <button type="submit" class="btn btn-default">Submit</button>
+</p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layouts.html" %}
+
+{% block page %}
+
+<form method=post action="/task/addsub/{{ task_id }}" >
+	
+ <div class="form-group">
+    <label>Task Content</label>
+    <input type="text" class="form-control" name="content" placeholder="Enter Task Content" required autofocus>
+	
+    <label>DeadLine</label>
+    <input type="date" class="form-control" name="deadline" placeholder="Enter Deadline" value={{ nowdate }} required>
+	
+  </div>
+
+<p>
+  <button type="submit" class="btn btn-default">Create</button>
+</p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layouts.html" %}
+
+{% block sidebar %}  {%endblock%}
+
+{% block page %}
+
+<form method=post action="/task/add" >
+	
+ <div class="form-group">
+    <label>Task Content</label>
+	<textarea class="form-control" rows="3" name="content" placeholder="Enter Task Content"  required autofocus></textarea>
+	
+    
+	
+    <label>Assign</label>
+    <input type="text" class="form-control" name="assign" placeholder="Enter Assign List">
+	
+    <label>DeadLine</label>
+    <input type="date" class="form-control" name="deadline" placeholder="Enter Deadline" value= {{ nowdate }} required>
+	
+  </div>
+
+<p>
+  <button type="submit" class="btn btn-default">Create</button>
+</p>
+</form>
+{% endblock %}

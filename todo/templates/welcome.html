@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body %}
+<link href="/static/css/dashboard.css" rel="stylesheet">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/task/pending">Todo</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+			<li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="jumbotron">
+      <div class="container">
+	  	  {% for message in get_flashed_messages() %}
+	  	      <div class="alert alert-success"><div class=flash>{{ message }}</div></div>
+	  	    {% endfor %}
+        <h1>Hello!</h1>
+        <p>This is a simple teamwork to-do list web application. Based on Flask, MongoDB and Bootstrap.</p>
+        <p><a href="/login" class="btn btn-primary btn-lg" role="button">Login</a></p>
+      </div>
+    </div>
+
+ 
+    </div> <!-- /container -->
+	
+{% endblock %}

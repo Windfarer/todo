@@ -1,0 +1,18 @@
+{% extends "show.html" %}
+
+{% block sidebar %}
+
+          <ul class="nav nav-sidebar">
+            <li><a href="/task/pending"><span class="badge pull-right"></span>Pending</a></li>
+			<li><a href="/task/timeout">Timeout</a></li>
+            <li><a href="/task/finished">Finished</a></li>
+			<li class="active"><a href="/task/all">All</a></li>
+
+          </ul>
+{% endblock %}
+
+{% block page %}
+
+{% include "tasklist.html" %}
+  
+{% endblock %}

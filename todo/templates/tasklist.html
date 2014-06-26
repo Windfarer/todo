@@ -1,0 +1,53 @@
+{% for task in tasks %}
+
+<div class="panel panel-default">
+  <div class="panel-body">
+	 <label>Task:</label>
+   <p>{{task.content}} </p>
+   <label>Deadline:</label>
+  <p> {{task.deadline}} </p>
+    <label>Assignlist:</label>
+   <p>{% for item in task.assignlist %} {{item.user}}
+	    {% endfor %}</p>
+		 {% if task.endtime %}
+	     <label>EndTime:</label>
+	    <p> {{task.endtime}} </p>
+		 {%  endif %}
+		
+		
+	  {% for i,subtask in task.subtasks %}
+	  <div class="panel panel-default">
+	    <div class="panel-body">
+		  	{%if subtask.status==True %}<span class="label label-success">Finished</span>
+		  	{% elif subtask.status==False %}<span class="label label-warning">Pending</span>{%endif%}
+			<div class='taskbox'> <label>Task:</label>
+	      <p>{{subtask.content}} </p></div>
+		  <div class='informationbox'>
+		   <label>Deadline:</label>
+		  <p> {{subtask.deadline}} </p>
+		 {% if subtask.endtime %}
+		   <label>EndTime:</label>
+		  <p> {{subtask.endtime}} </p>
+	  </div>
+		  {%  endif %}
+	  	
+	  	<a href="/task/edit/{{ task.id }}/{{i}}"><span class="glyphicon glyphicon-pencil"></span></a>
+	  	<a href="/task/delete/{{ task.id }}/{{i}}"><span class="glyphicon glyphicon-remove"></span></a>
+	  	<a href="/task/close/{{ task.id }}/{{i}}"><span class="glyphicon glyphicon-ok"></span></a>
+	    </div>
+	  </div>
+	    {% endfor %}
+
+	
+  </div>
+  <div class="panel-footer">
+	{%if timeout==True %}<span class="label label-danger">Timeout</span>
+	{%elif task.status==True %}<span class="label label-success">Finished</span>
+	{% elif task.status==False %}<span class="label label-warning">Pending</span>{%endif%}
+	<a href="/task/addsub/{{ task.id }}"><span class="glyphicon glyphicon-plus"></span></a>
+	<a href="/task/edit/{{ task.id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+	<a href="/task/delete/{{ task.id }}"><span class="glyphicon glyphicon-remove"></span></a>
+	<a href="/task/close/{{ task.id }}"><span class="glyphicon glyphicon-ok"></span></a> </div>
+</div>
+
+{% endfor %}
